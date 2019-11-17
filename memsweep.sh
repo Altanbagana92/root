@@ -10,4 +10,4 @@ if [ "$SYSTEMROOT" = "C:\Windows" ] ; then
 else
 	./memsweep
 fi
-echo date '+%s'
+date '+%s'
