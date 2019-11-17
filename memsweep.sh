@@ -9,5 +9,5 @@ echo "Running memsweep benchmark"
 if [ "$SYSTEMROOT" = "C:\Windows" ] ; then
 	./memsweep.exe
 else
-	./memsweep.c
+	./memsweep
 fi
