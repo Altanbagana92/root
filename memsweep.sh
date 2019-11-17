@@ -2,7 +2,7 @@
 EXECUTABLE="memsweep"
 if [ ! -e $EXECUTABLE ] ; then
 	echo "Compiling memsweep.c"
-	cc -O -o memsweep.c -lm
+	cc -O -o memsweep memsweep.c -lm
 fi
 
 echo "Running memsweep benchmark"
