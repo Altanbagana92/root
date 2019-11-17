@@ -2,7 +2,7 @@
 EXECUTABLE="linpack"
 if [ ! -e $EXECUTABLE ] ; then
 	echo "Compiling linpack.c"
-	cc -O -o linpack linpack.c -lm
+	cc -O -o linpack.c -lm
 fi
 
 echo "Running linpack benchmark"
