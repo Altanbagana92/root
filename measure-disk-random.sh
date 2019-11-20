@@ -11,4 +11,5 @@ READ=$(fio --thread --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 
 
 rm test
 
-echo "$WRITE $READ" | awk '{printf $1 + $2 "\n"}'
+echo "$READ" | awk '{printf $1"\n"}'
+echo "$WRITE" | awk '{printf $1"\n"}'
