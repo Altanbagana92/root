@@ -14,3 +14,4 @@ READ=$(dd if=seq_write of=/dev/null bs=$BS count=$COUNT 2>&1 | tail -n 1 | cut -
 # We measure the performance as the sum of written and read MB per second
 rm seq_write
 echo "$WRITE + $READ" | bc
+date +%s
