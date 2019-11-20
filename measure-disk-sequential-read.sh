@@ -17,7 +17,8 @@ sync
 # only measured after everything is written to disk
 READ=$(dd if=seq_write of=/dev/null bs=$BS count=$COUNT 2>&1 | tail -n 1 | 
 cut -d " " -f 8-9 | sed s/,/./g | awk '{if($2 ~ /GB/){printf "%d000000\n", $1 * 1000}else{printf "%d000000\n", $1}}')
+# We measure the performance as the sum of written and read MB per second
 
 rm seq_write
 
-echo "$READ" | awk '{printf $2 "\n"}'
+echo "$WRITE $READ" | awk '{printf $2 "\n"}'
