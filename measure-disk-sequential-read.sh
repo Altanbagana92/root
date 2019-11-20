@@ -5,7 +5,7 @@ COUNT=3
 # We write 8 times 250 MB of null characters and write them to seq_write.
 # After that we flush the cache and stop measuring
 WRITE=$(dd if=/dev/zero of=seq_write bs=$BS count=$COUNT conv=fdatasync 2>&1 | tail -n 1 | cut -d " " -f 8-9 | sed s/,/./g | awk '{if($2 ~ /GB/){printf "%d000000\n", $1 * 1000}else{printf "%d000000\n", $1}}')
-sync
+# sync
 # Testing read
 # We read from our 2GB file in blocks of 250 so we are not bottlencked by memory
 # We flush at the end so the system can optimize during write, but the result is
