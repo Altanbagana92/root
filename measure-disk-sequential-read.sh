@@ -11,5 +11,6 @@ WRITE=$(dd if=/dev/zero of=seq_write bs=$BS count=$COUNT conv=fdatasync 2>&1 | t
 # We flush at the end so the system can optimize during write, but the result is
 # only measured after everything is written to disk
 READ=$(dd if=seq_write of=/dev/null bs=$BS count=$COUNT 2>&1 | tail -n 1 | cut -d " " -f 8-9 | sed s/,/./g | awk '{if($2 ~ /GB/){printf "%d000000\n", $1 * 1000}else{printf "%d000000\n", $1}}')
+# We measure the performance as the sum of written and read MB per second
 rm seq_write
-echo "$READ" | awk '{printf $1 "\n"}'
+echo "$READ"
